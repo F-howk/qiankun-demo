@@ -18,7 +18,6 @@ export default defineComponent({
     return {};
   },
   created(){
-    console.log('index--created')
   }
 });
 </script>

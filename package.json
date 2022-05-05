@@ -4,6 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    
+    "dev-all": "npm-run-all --parallel dev:*",
+    "dev:app1":"cd app1 && yarn serve",
+    "dev:app2":"cd app2 && yarn dev",
+    "dev:main2":"cd main2 && yarn dev"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }

@@ -22,5 +22,4 @@ const router = createRouter({
   base: window.__POWERED_BY_QIANKUN__ ? '/app1/' : '/',
   routes
 })
-
 export default router

@@ -21,18 +21,18 @@ export default route(function (/* { store, ssrContext } */) {
     ? createMemoryHistory
     : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory);
 
+  let baseURL = window.__POWERED_BY_QIANKUN__ ? '/app2/' : process.env.VUE_ROUTER_BASE;
   const Router = createRouter({
     scrollBehavior: () => ({ left: 0, top: 0 }),
+    base: baseURL,
     routes,
-    base: window.__POWERED_BY_QIANKUN__ ? '/app2/' : '/',
 
     // Leave this as is and make changes in quasar.conf.js instead!
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
     history: createHistory(
-      process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE
+      process.env.MODE === 'ssr' ? void 0 : baseURL
     ),
   });
-
   return Router;
 });
